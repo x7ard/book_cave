@@ -1,0 +1,84 @@
+<app-header pageTitle="ABOUT US"></app-header>
+
+<mat-tab-group [backgroundColor]="'primary'" [color]="'warn'">
+  <mat-tab label="FAQ">
+    <div class="container m-5">
+      <p>The easiest way for you to return the merchandise is to get a pre-paid label by logging in at Zappos.com
+      </p>
+      <ol>
+        <li>Go to the website and click on My Account in the upper right hand corner.</li>
+        <li>Log in to your account using your email address and password.</li>
+        <li>Click on the order number of the merchandise you wish to return.</li>
+        <li>Check the box to the left of the item(s) you wish to return and click on the Return Checked Item box.</li>
+        <li>Choose to have the label displayed for immediate printing or emailed if you are unable to print immediately.
+          Then click 'Return Item(s)' at the bottom of the page.</li>
+        <li>The next page will feature a picture of the item and a barcode.</li>
+        <li>If you do not have the original packaging, please return by placing a copy of the return confirmation with
+          merchandise inside of a plastic bag and place inside the shipping box.</li>
+        <li>On this page is where you can view for immediate printing. To display your label, click the orange link in
+          the
+          middle of the page that says "Click here to view your return label."</li>
+        <li>Now just print it and tape it to your shipping box with clear packing tape. Tada!</li>
+      </ol><br /><br />
+
+      <p>If you would rather receive your label via email, instead of selecting the option to print the label, select
+        the
+        option to have a label emailed to you. If for any reason you are unable to print out a label, we would be happy
+        to
+        have the label mailed out to you. Simply let us know by email, live chat, or phone and we will gladly send it to
+        you right away. Please note that if you choose to have the label send to you by USPS “snail mail”, it may take
+        7-10 days for it to arrive.</p>
+
+      <p>Make sure the merchandise is in its original packaging, (e.g., shoebox), and place it in a shipping box. Attach
+        the label to the sealed box. Be sure to cover any old labels with the new one, or just peel them off. A black
+        marker can also be used to cover any existing bar codes.</p>
+
+      <p>You may drop off your return at any authorized UPS shipping location, but please do not drop your return off at
+        a
+        drop box. To find the nearest authorized shipping location, please visit www.ups.com.</p>
+
+    </div>
+
+  </mat-tab>
+  <mat-tab label="The team">
+    <div class="container">
+      <mat-chip-list aria-label="team selection" class="m-5">
+        <mat-chip *ngFor="let member of team" color="primary" selected>{{member}}</mat-chip>
+      </mat-chip-list>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Terms">
+    <div class="container m-5">
+      <strong>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magni quae hic, odio harum
+        libero quasi corrupti itaque tenetur aliquid natus omnis ullam sed velit iusto. Tempora dolores ratione
+        voluptas?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatibus maxime laborum sit deleniti minima
+        hic
+        est tempore ipsum iusto a quis incidunt delectus, amet sed magni voluptas nostrum. Quasi.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in! Et quo minus deleniti. Ipsam adipisci,
+        incidunt
+        eveniet labore voluptatum debitis! Rerum voluptatem optio ullam esse repellendus similique, nemo nam?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, tempore? Perferendis, ullam odit? Asperiores
+        cupiditate, nobis consequuntur perferendis quos, fuga suscipit aliquid explicabo cum quis modi, ab nam odit
+        unde?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sint dicta iure culpa sequi laboriosam dolore
+        nostrum
+        ut ullam, officiis vero nihil! Iure cupiditate dolor architecto natus tempore, consequatur cumque?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut adipisci voluptates facilis, aliquid ea tempore,
+        laboriosam pariatur ab, obcaecati sed commodi. Maxime quod modi nisi provident doloremque neque a autem.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam, qui inventore laudantium harum rerum
+        fugit nam in provident debitis. Minus architecto, iure amet libero porro officia laudantium iste magni?
+      </strong>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Special thanks">
+    <div class="m-5 d-flex justify-content-center align-items-center">
+      <button mat-flat-button color="accent" (click)="openSnackBar()" aria-label="Show an example snack-bar">
+        click me for surprise 😉
+      </button>
+    </div>
+  </mat-tab>
+</mat-tab-group>

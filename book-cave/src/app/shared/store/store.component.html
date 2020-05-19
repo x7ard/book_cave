@@ -1,0 +1,41 @@
+<app-header pageTitle="STORE"></app-header>
+<h4 class="p-3">Categories</h4>
+<div class="row m-2">
+  <div *ngFor="let item of categories">
+    <button class="m-1" mat-raised-button color="primary">{{item.label}}</button>
+  </div>
+</div>
+
+<div class="container p-3">
+  <div class="row d-flex justify-content-center align-items-center">
+
+    <div *ngFor="let book of ebooks" class="col-md-4">
+      <mat-card class="example-card m-2">
+        <img mat-card-image src="../../../assets/img/logo.png" alt="books">
+        <mat-card-content>
+          <h4>
+            {{book.title}}
+          </h4>
+          <p>{{book.description}}</p>
+          <p>written by : <span>{{book.author.name}}</span></p>
+          <mat-chip color="accent" selected class="mb-2">{{book.price}} DHs</mat-chip>
+        <mat-chip-list aria-label="book selection" class="d-flex flex-column">
+          <mat-chip>Stock: {{book.stock}}</mat-chip>     
+          <mat-chip color="primary" selected>{{book.category.label}}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>Add to cart
+          </button>
+          <button mat-button>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">message</mat-icon>review
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<mat-paginator [length]="15" [pageSize]="3" [pageSizeOptions]="[1, 2, 3, 6, 9]">
+</mat-paginator>

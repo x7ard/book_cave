@@ -1,0 +1,99 @@
+<app-header pageTitle="Admin management"></app-header>
+
+<div class="wrapper-again">
+
+
+  <mat-card>
+    <mat-card-content>
+      <div
+        *ngIf="(toggleField=='searchMode') else (toggleField=='addMode')? showAddMode : ((toggleField=='editMode')? showEditMode : showResMode)">
+        <!-- search field here -->
+        <form #searchFormData="ngForm" class="example-form">
+
+          <mat-card-actions>
+            <span matTooltip="add new book">
+              <mat-icon class="m-2" color="primary" (click)="toggle('addMode');">playlist_add</mat-icon>
+            </span>
+            <span class="example-icon"></span>
+            <span matTooltip="show recent results">
+              <mat-icon class="m-2" color="primary" (click)="toggle('resMode');getData();">cached</mat-icon>
+            </span>
+          </mat-card-actions>
+
+          <mat-form-field appearance="fill" class="example-form mr-2">
+            <input matInput type="text" placeholder="category" id="category" value="value" name="category"
+              #category="ngModel" ngModel minlength="3" maxlength="50">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-form mr-2">
+            <input matInput type="text" placeholder="book" id="book" value="value" name="book" #category="ngModel"
+              ngModel minlength="3" maxlength="50">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-form">
+            <input matInput type="text" placeholder="author" id="author" value="value" name="author" #category="ngModel"
+              ngModel minlength="3" maxlength="50">
+          </mat-form-field>
+
+          <mat-card-actions>
+            <button type="button" (click)="toggle('resMode'); getFilterData(searchFormData.value);" mat-raised-button
+              [disabled]="!searchFormData.valid" color="primary">search</button>
+
+          </mat-card-actions>
+
+
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<ng-template #showAddMode>
+  <!-- add page -->
+  <form #addDataForm="ngForm" (ngSubmit)="setData(addDataForm.value);" novalidate>
+
+    <mat-error *ngIf="savedChanges">
+      Data is saved.
+      <label class="small-spacer"></label>
+      <mat-icon (clock)="this.addDataForm.reset(); savedChanges=false;toggle('searchMode');">clear</mat-icon>
+    </mat-error>
+    <div *ngIf="!savedChanges">
+      <mat-card-actions>
+        <span matTooltip="search">
+          <mat-icon class="m-2" color="primary" (click)="toggle('searchMode');">search</mat-icon>
+        </span>
+        <span class="example-icon"></span>
+        <span matTooltip="show recent results">
+          <mat-icon class="m-2" color="primary" (click)="toggle('resMode');getData();">cached</mat-icon>
+        </span>
+      </mat-card-actions>
+
+      <mat-form-field appearance="fill" class="example-form mr-1">
+        <input matInput type="text" placeholder="category" id="category" name="category" ngModel required minlength="1">
+        <mat-hint align="end">eg. romance</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-form mr-1">
+        <input matInput type="text" placeholder="sub category" id="scategory" name="scategory" ngModel required
+          minlength="1">
+        <mat-hint align="end">eg. light romance</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-form mr-1">
+        <textarea matInput type="text" placeholder="description" id="description" name="description" ngModel required
+          minlength="1"></textarea>
+        <mat-hint align="end">eg. lorem ipsum</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="price" id="price" name="price">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+
+    </div>
+  </form>
+</ng-template>
+<ng-template #editMode>
+  <!-- edit page -->
+</ng-template>
+<ng-template #showResMode>
+  <!-- results page -->
+</ng-template>
